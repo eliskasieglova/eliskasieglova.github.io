@@ -1,15 +1,59 @@
 <!DOCTYPE html>
 <html>
     <head>
-         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-         crossorigin=""/>
-         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-         crossorigin=""></script>
+        <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.umd.js"></script>
+    <link href="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.css" rel="stylesheet" />
+    <script src="https://cdn.maptiler.com/leaflet-maptilersdk/v2.0.0/leaflet-maptilersdk.js"></script>
+            <style>
+      #map {position: absolute; top: 0; right: 0; bottom: 0; left: 0;}
+    </style>
     </head>
     <body>
         <h1>Hello World</h1>
         <div id="map"></div>
+    <script>
+      const map = L.map('map').setView([41.782993,3.030553], 14);
+      const mtLayer = L.maptilerLayer({
+        apiKey: 'YOUR_MAPTILER_API_KEY_HERE',
+        style: L.MaptilerStyle.DATAVIZ.LIGHT, // optional
+      }).addTo(map);
+
+      mtLayer.on("ready", () => {
+
+        // Leverage the MapTiler SDK layer helpers to easily add polyline / point / polygon / heatmap layers
+        mtLayer.addPolygon({
+          data: 'guixols.geojson',
+          fillColor: [
+            {zoom: 14, value: "#593895"},
+            {zoom: 15, value: "#761FE8"},
+            {zoom: 16, value: "#F1175D"},
+            {zoom: 17, value: "#FB3A1B"},
+            {zoom: 18, value: "#FBC935"},
+            {zoom: 19, value: "#FFAA01"},
+          ],
+          outline: true,
+          outlineWidth: [
+            {zoom: 14, value: 0},
+            {zoom: 15, value: 1},
+            {zoom: 16, value: 2},
+            {zoom: 17, value: 3},
+            {zoom: 18, value: 4},
+            {zoom: 19, value: 5},
+          ],
+          outlineColor: [
+            {zoom: 14, value: "#805CC2"},
+            {zoom: 16, value: "#E25041"},
+            {zoom: 18, value: "#FFD65F"},
+          ],
+          outlinePosition: "inside",
+        });
+
+      });
+    </script>
+
     </body>
 </html>
