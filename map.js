@@ -95,7 +95,6 @@ L.control.layers(null, overlayMaps).addTo(map);
 function resetHighlight(e) {
     layer2023.resetStyle(e.target);
     info.update();
-    plot.showimg();
 };
 
 function zoomToFeature(e) {
