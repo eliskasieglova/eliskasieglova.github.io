@@ -47,8 +47,8 @@ plot.onAdd = function (map) {
 
 plot.showimg = function (props) {
     this._div.innerHTML = (props ?
-        '<img src="../data/temp/figs/' + props.glacier_id + '_' + props.year + '.png">'+ ' '
-        : 'hover over a glacier');
+        '<img src="imgs/' + props.glacier_id + '_' + props.year + '.png">'+ ' '
+        : '');
 };
 
 plot.addTo(map);
