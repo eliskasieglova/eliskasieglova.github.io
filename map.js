@@ -69,7 +69,6 @@ function highlightFeature(e) {
         fillOpacity: 0.7
     });
     info.update(layer.feature.properties);
-    plot.showimg(layer.feature.properties)
     layer.bringToFront();
 };
 
