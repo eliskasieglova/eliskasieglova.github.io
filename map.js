@@ -69,7 +69,6 @@ function highlightFeature(e) {
         fillOpacity: 0.7
     });
     info.update(layer.feature.properties);
-    plot.showimg(layer.feature.properties);
     layer.bringToFront();
 };
 
@@ -95,7 +94,6 @@ L.control.layers(null, overlayMaps).addTo(map);
 function resetHighlight(e) {
     layer2023.resetStyle(e.target);
     info.update();
-    plot.showimg();
 };
 
 function zoomToFeature(e) {
@@ -108,7 +106,7 @@ function onEachFeature(feature, layer) {
         mouseout: resetHighlight,
         click: zoomToFeature
     });
-}
+};
 
 // Legend
 var legend = L.control({position: 'bottomright'});
