@@ -72,6 +72,17 @@ function highlightFeature(e) {
     layer.bringToFront();
 };
 
+
+// Title
+    var title = L.control({position: 'topleft'});
+    title.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'map-title');
+        div.innerHTML = 'Svalbard Surges';
+        return div;
+    };
+
+    title.addTo(map);
+
 // Create layers for each year's geoJSON data
 var layer2023 = L.geoJSON(results2023, {style: style, onEachFeature: onEachFeature}).addTo(map);
 var layer2022 = L.geoJSON(results2022, {style: style, onEachFeature: onEachFeature});
@@ -127,14 +138,4 @@ legend.onAdd = function (map) {
 };
 
 legend.addTo(map);
-
-// Title
-    var title = L.control({position: 'topleft'});
-    title.onAdd = function (map) {
-        var div = L.DomUtil.create('div', 'map-title');
-        div.innerHTML = 'Svalbard Surges';
-        return div;
-    };
-
-    title.addTo(map);
 
