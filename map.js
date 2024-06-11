@@ -86,12 +86,11 @@ function highlightFeature(e) {
         fillOpacity: 0.7
     });
     info.update(layer.feature.properties);
-    plot.showimg(layer.feature.properties)
+    plot.showimg(layer.feature.properties);
     layer.bringToFront();
 };
 
 // Create layers for each year's geoJSON data
-//var geojson = L.geoJSON(data, {style: style, onEachFeature: onEachFeature}).addTo(map);
 var layer2023 = L.geoJSON(results2023, {style: style, onEachFeature: onEachFeature}).addTo(map);
 var layer2022 = L.geoJSON(results2022, {style: style, onEachFeature: onEachFeature});
 var layer2021 = L.geoJSON(results2021, {style: style, onEachFeature: onEachFeature});
