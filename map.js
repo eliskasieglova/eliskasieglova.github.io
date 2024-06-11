@@ -37,6 +37,16 @@ info.update = function (props) {
 
 info.addTo(map);
 
+// Title
+    var title = L.control({position: 'topleft'});
+    title.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'map-title');
+        div.innerHTML = 'Svalbard Surges';
+        return div;
+    };
+
+    title.addTo(map);
+
 // Set colors for surging/non surging glaciers
 function getColor(d) {
     if (d == -999) {
@@ -71,17 +81,6 @@ function highlightFeature(e) {
     info.update(layer.feature.properties);
     layer.bringToFront();
 };
-
-
-// Title
-    var title = L.control({position: 'topleft'});
-    title.onAdd = function (map) {
-        var div = L.DomUtil.create('div', 'map-title');
-        div.innerHTML = 'Svalbard Surges';
-        return div;
-    };
-
-    title.addTo(map);
 
 // Create layers for each year's geoJSON data
 var layer2023 = L.geoJSON(results2023, {style: style, onEachFeature: onEachFeature}).addTo(map);
