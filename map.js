@@ -1,6 +1,11 @@
 // Initialize the map
 var map = L.map('map').setView([78.6, 19], 5);
 
+// Add tile layer from OpenStreetMap
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
 // Title
     var title = L.control({position: 'topleft'});
     title.onAdd = function (map) {
@@ -10,11 +15,6 @@ var map = L.map('map').setView([78.6, 19], 5);
     };
 
     title.addTo(map);
-
-// Add tile layer from OpenStreetMap
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
 
 // Add info that shows on hover
 var info = L.control();
