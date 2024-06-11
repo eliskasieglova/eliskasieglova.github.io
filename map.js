@@ -37,6 +37,23 @@ info.update = function (props) {
 
 info.addTo(map);
 
+
+var plot = L.control();
+plot.onAdd = function (map) {
+    this._div = L.DomUtil.create('div', 'plot'); // create a div with a class "info"
+    this.showimg();
+    return this._div;
+};
+
+plot.showimg = function (props) {
+    this._div.innerHTML = (props ?
+        '<img src="imgs/' + props.glacier_id + '_' + props.year + '.png">'+ ' '
+        : '');
+};
+
+plot.addTo(map);
+
+
 // Set colors for surging/non surging glaciers
 function getColor(d) {
     if (d == -999) {
@@ -69,6 +86,7 @@ function highlightFeature(e) {
         fillOpacity: 0.7
     });
     info.update(layer.feature.properties);
+    plot.showimg(layer.feature.properties)
     layer.bringToFront();
 };
 
@@ -95,6 +113,7 @@ L.control.layers(null, overlayMaps).addTo(map);
 function resetHighlight(e) {
     layer2023.resetStyle(e.target);
     info.update();
+    plot.showimg();
 };
 
 function zoomToFeature(e) {
