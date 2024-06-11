@@ -7,14 +7,14 @@ attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStree
 }).addTo(map);
 
 // Title
-    var title = L.control({position: 'topleft'});
-    title.onAdd = function (map) {
-        var div = L.DomUtil.create('div', 'map-title');
-        div.innerHTML = 'Svalbard Surges';
-        return div;
-    };
+var title = L.control({position: 'topleft'});
+title.onAdd = function (map) {
+    var div = L.DomUtil.create('div', 'map-title');
+    div.innerHTML = 'Svalbard Surges';
+    return div;
+};
 
-    title.addTo(map);
+title.addTo(map);
 
 // Add info that shows on hover
 var info = L.control();
