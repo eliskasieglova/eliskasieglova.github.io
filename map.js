@@ -1,6 +1,16 @@
 // Initialize the map
 var map = L.map('map').setView([78.6, 19], 5);
 
+// Title
+    var title = L.control({position: 'topleft'});
+    title.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'map-title');
+        div.innerHTML = 'Svalbard Surges';
+        return div;
+    };
+
+    title.addTo(map);
+
 // Add tile layer from OpenStreetMap
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -36,16 +46,6 @@ info.update = function (props) {
 };
 
 info.addTo(map);
-
-// Title
-    var title = L.control({position: 'topleft'});
-    title.onAdd = function (map) {
-        var div = L.DomUtil.create('div', 'map-title');
-        div.innerHTML = 'Svalbard Surges';
-        return div;
-    };
-
-    title.addTo(map);
 
 // Set colors for surging/non surging glaciers
 function getColor(d) {
