@@ -42,9 +42,11 @@ function isThisGlacierSurging(s) {
 
 info.update = function (props) {
     this._div.innerHTML = '<h4>is this glacier surging?</h4>' +  (props ?
-        '<b>' + props.glacier_name + '</b><br />' + isThisGlacierSurging(props.surging) + ' '
+        '<b>' + props.glacier_name + '</b><br/>' + isThisGlacierSurging(props.surging) + ' '
+        + '(probability: ' + props.probability + ')'
         : 'hover over a glacier');
 };
+
 
 info.addTo(map);
 
