@@ -102,27 +102,37 @@ function highlightFeature(e) {
     layer.bringToFront();
 };
 
-// Create layers for each year's geoJSON data
-var layer2023 = L.geoJSON(results2023, {style: style, onEachFeature: onEachFeature}).addTo(map);
-var layer2022 = L.geoJSON(results2022, {style: style, onEachFeature: onEachFeature});
-var layer2021 = L.geoJSON(results2021, {style: style, onEachFeature: onEachFeature});
-var layer2020 = L.geoJSON(results2020, {style: style, onEachFeature: onEachFeature});
-var layer2019 = L.geoJSON(results2019, {style: style, onEachFeature: onEachFeature});
+//var geojson = L.geoJSON(data, {style: style, onEachFeature: onEachFeature}).addTo(map);
+var RF2023 = L.geoJSON(RFresults2023, {style: style, onEachFeature: onEachFeature}).addTo(map);
+var RF2022 = L.geoJSON(RFresults2022, {style: style, onEachFeature: onEachFeature});
+var RF2021 = L.geoJSON(RFresults2021, {style: style, onEachFeature: onEachFeature});
+var RF2020 = L.geoJSON(RFresults2020, {style: style, onEachFeature: onEachFeature});
+var RF2019 = L.geoJSON(RFresults2019, {style: style, onEachFeature: onEachFeature});
+var HGB2019 = L.geoJSON(HGBresults2019, {style: style, onEachFeature: onEachFeature});
+var HGB2020 = L.geoJSON(HGBresults2020, {style: style, onEachFeature: onEachFeature});
+var HGB2021 = L.geoJSON(HGBresults2021, {style: style, onEachFeature: onEachFeature});
+var HGB2022 = L.geoJSON(HGBresults2022, {style: style, onEachFeature: onEachFeature});
+var HGB2023 = L.geoJSON(HGBresults2023, {style: style, onEachFeature: onEachFeature});
 
 // Create an object to hold the layers
 var overlayMaps = {
-    "2019": layer2019,
-    "2020": layer2020,
-    "2021": layer2021,
-    "2022": layer2022,
-    "2023": layer2023
+    "RF 2019": RF2019,
+    "RF 2020": RF2020,
+    "RF 2021": RF2021,
+    "RF 2022": RF2022,
+    "RF 2023": RF2023,
+    "HGB 2019": HGB2019,
+    "HGB 2020": HGB2020,
+    "HGB 2021": HGB2021,
+    "HGB 2022": HGB2022,
+    "HGB 2023": HGB2023
 };
 
 // Add the layer control to the map
 L.control.layers(null, overlayMaps).addTo(map);
 
 function resetHighlight(e) {
-    layer2023.resetStyle(e.target);
+    RF2023.resetStyle(e.target);
     info.update();
     plot.showimg();
 };
