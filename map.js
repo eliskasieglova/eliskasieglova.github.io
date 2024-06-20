@@ -103,11 +103,11 @@ function highlightFeature(e) {
 };
 
 //var geojson = L.geoJSON(data, {style: style, onEachFeature: onEachFeature}).addTo(map);
-var RF2023 = L.geoJSON(RFresults2023, {style: style, onEachFeature: onEachFeature}).addTo(map);
-var RF2022 = L.geoJSON(RFresults2022, {style: style, onEachFeature: onEachFeature});
-var RF2021 = L.geoJSON(RFresults2021, {style: style, onEachFeature: onEachFeature});
-var RF2020 = L.geoJSON(RFresults2020, {style: style, onEachFeature: onEachFeature});
-var RF2019 = L.geoJSON(RFresults2019, {style: style, onEachFeature: onEachFeature});
+var RF2023 = L.geoJSON(results2023, {style: style, onEachFeature: onEachFeature}).addTo(map);
+var RF2022 = L.geoJSON(results2022, {style: style, onEachFeature: onEachFeature});
+var RF2021 = L.geoJSON(results2021, {style: style, onEachFeature: onEachFeature});
+var RF2020 = L.geoJSON(results2020, {style: style, onEachFeature: onEachFeature});
+var RF2019 = L.geoJSON(results2019, {style: style, onEachFeature: onEachFeature});
 
 // Create an object to hold the layers
 var overlayMaps = {
