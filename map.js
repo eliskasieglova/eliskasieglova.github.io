@@ -43,7 +43,7 @@ function isThisGlacierSurging(s) {
 info.update = function (props) {
     this._div.innerHTML = '<h4>is this glacier surging?</h4>' +  (props ?
         '<b>' + props.glacier_name + '</b><br/>' + isThisGlacierSurging(props.surging) + ' '
-        + '(probability: ' + props.probability + ')'
+        + '(probability: ' + props.probability + ', QF: ' + props.quality_flag + ')'
         : 'hover over a glacier');
 };
 
@@ -108,11 +108,6 @@ var RF2022 = L.geoJSON(RFresults2022, {style: style, onEachFeature: onEachFeatur
 var RF2021 = L.geoJSON(RFresults2021, {style: style, onEachFeature: onEachFeature});
 var RF2020 = L.geoJSON(RFresults2020, {style: style, onEachFeature: onEachFeature});
 var RF2019 = L.geoJSON(RFresults2019, {style: style, onEachFeature: onEachFeature});
-var HGB2019 = L.geoJSON(HGBresults2019, {style: style, onEachFeature: onEachFeature});
-var HGB2020 = L.geoJSON(HGBresults2020, {style: style, onEachFeature: onEachFeature});
-var HGB2021 = L.geoJSON(HGBresults2021, {style: style, onEachFeature: onEachFeature});
-var HGB2022 = L.geoJSON(HGBresults2022, {style: style, onEachFeature: onEachFeature});
-var HGB2023 = L.geoJSON(HGBresults2023, {style: style, onEachFeature: onEachFeature});
 
 // Create an object to hold the layers
 var overlayMaps = {
@@ -121,11 +116,6 @@ var overlayMaps = {
     "RF 2021": RF2021,
     "RF 2022": RF2022,
     "RF 2023": RF2023,
-    "HGB 2019": HGB2019,
-    "HGB 2020": HGB2020,
-    "HGB 2021": HGB2021,
-    "HGB 2022": HGB2022,
-    "HGB 2023": HGB2023
 };
 
 // Add the layer control to the map
